@@ -27,4 +27,9 @@ public class AlienKICatchingUp : AlienKIState {
 	{
 		Debug.Log ("the alien went too far away from the player and has to catch up again");
 	}
+
+	public override void tick ()
+	{
+
+	}
 }

@@ -10,9 +10,11 @@ public abstract class AlienKIState {
 		this.stateManager = stateManager;
 	}
 
-	public abstract void enter ();
-
 	public abstract void checkTransitions();
 
+	public abstract void enter ();
+
 	public abstract void exit();
+
+	public abstract void tick();
 }

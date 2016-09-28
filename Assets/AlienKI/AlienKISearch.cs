@@ -17,7 +17,7 @@ public class AlienKISearch : AlienKIState {
 		RaycastHit2D lookToPlayerHit = Physics2D.Raycast (stateManager.transform.position, 
 			toPlayer.normalized, stateManager.viewDistance, LayerMask.GetMask ("Default"));
 		if (lookToPlayerHit.collider == stateManager.player.GetComponent<Collider2D> () &&
-		    (Vector2.Angle (-stateManager.transform.up, toPlayer) < stateManager.viewangle || 
+			(Vector2.Angle (-stateManager.rotation.up, toPlayer) < stateManager.viewangle || 
 				toPlayer.magnitude < stateManager.smellDistance)) {
 
 			stateManager.transitionTo (this, stateManager.charge);
@@ -37,5 +37,10 @@ public class AlienKISearch : AlienKIState {
 	{
 		lastPlayerPosition = stateManager.player.transform.position;
 		Debug.Log ("the alien can't see the player anymore and goes to the last seen location");
+	}
+
+	public override void tick ()
+	{
+
 	}
 }

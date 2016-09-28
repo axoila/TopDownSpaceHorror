@@ -19,7 +19,7 @@ public class AlienKIRandom : AlienKIState
 			RaycastHit2D lookToPlayerHit = 
 				Physics2D.Raycast (stateManager.transform.position, toPlayer.normalized, stateManager.viewDistance, LayerMask.GetMask ("Default"));
 			if (lookToPlayerHit.collider == stateManager.player.GetComponent<Collider2D> () &&
-				(Vector2.Angle (-stateManager.transform.up, toPlayer) < stateManager.viewangle || toPlayer.magnitude < stateManager.smellDistance)) {
+				(Vector2.Angle (-stateManager.rotation.up, toPlayer) < stateManager.viewangle || toPlayer.magnitude < stateManager.smellDistance)) {
 
 				stateManager.transitionTo (this, stateManager.charge);
 			}
@@ -34,5 +34,10 @@ public class AlienKIRandom : AlienKIState
 	public override void enter ()
 	{
 		Debug.Log ("the alien lost the player and will stroll around aimlessly");
+	}
+
+	public override void tick ()
+	{
+
 	}
 }
